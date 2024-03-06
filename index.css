@@ -138,8 +138,114 @@ button.slick-prev {
     font-size: 2em;
 }
 
+.custom-shape-divider-bottom-1709755261 {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    overflow: hidden;
+    line-height: 0;
+    transform: rotate(180deg);
+}
+
+.custom-shape-divider-bottom-1709755261 svg {
+    position: relative;
+    display: block;
+    width: calc(100% + 1.3px);
+    height: 66px;
+}
+
+.custom-shape-divider-bottom-1709755261 .shape-fill {
+    fill: #001C30;
+}
+
+/*--- ------------------ --- */
+/*--- -section 001 --- */
+.section_001 {
+    background-color: #001C30;
+    color: #ffffffd3;
+    position: relative;
+}
+
+.section_001 .img_st01 {
+    width: 100%;
+    object-fit: contain;
+    height: 1000px;
+}
+
+.content_article {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 2rem;
+}
+
+.content_article .title {
+    /* font-weight: medium; */
+    font-size: 1.5em;
+    font-family: 'Oswald', 'sans-serif;';
+    display: block;
+    font-weight: 600;
+    color: #64CCC5;
+    margin-bottom: 1rem;
+}
+
+.content_article .paragrahp_section {
+    position: relative;
+    font-size: 1.2em;
+    font-family: "Lato", sans-serif;
+    display: block;
+    font-weight: 300;
+    z-index: 10;
+}
+
+.custom-shape-divider-bottom-1709756573 {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    overflow: hidden;
+    line-height: 0;
+    transform: rotate(180deg);
+}
+
+.custom-shape-divider-bottom-1709756573 svg {
+    position: relative;
+    display: block;
+    width: calc(100% + 1.3px);
+    height: 66px;
+    transform: rotateY(180deg);
+}
+
+.custom-shape-divider-bottom-1709756573 .shape-fill {
+    fill: #176B87;
+}
+
+/*--- -section 001 --- */
 /*--- ------------------ --- */
 
+/*--- -section 002 --- */
+
+/*--- -section 002 --- */
+.section_002 {
+    background-color: #176B87;
+    color: #ffffffd3;
+    position: relative;
+    padding: 5rem 0 10rem;
+}
+
+.section_002 .img_section_002 {
+    width: 400px;
+    max-width: 100%;
+}
+
+.section_002 .section_002_item {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
 
 /* --------------- */
 
@@ -147,8 +253,9 @@ button.slick-prev {
 @media only screen and (max-width: 480px) {
     .section_carrousel {
         width: 100vw;
-        height: 50vh;
+        height: 70vh;
         overflow: hidden;
+        position: relative;
     }
 
     .section_carrousel .slider {
@@ -162,6 +269,39 @@ button.slick-prev {
     .navbar .logo_nav_movile {
         display: block !important;
     }
+
+    .section_001 .img_st01 {
+        height: 600px;
+    }
+
+    .content_article .title {
+        /* font-weight: medium; */
+        font-size: 1.5em;
+        text-align: center;
+        font-family: 'Oswald', 'sans-serif;';
+        display: block;
+        font-weight: 600;
+        color: #64CCC5;
+        margin-bottom: 1rem;
+    }
+
+    .content_article .paragrahp_section {
+        position: relative;
+        font-size: 1em;
+        text-align: center;
+        font-family: "Lato", sans-serif;
+        display: block;
+        font-weight: 400;
+        z-index: 10;
+    }
+
+
+    .section_002 {
+        padding: 5rem 0;
+    }
+
+
+
 }
 
 
@@ -185,7 +325,7 @@ button.slick-prev {
     .section_carrousel .contador div .number_counter {
         font-size: 2em;
     }
-    
+
     .section_carrousel .contador div .text_counter {
         font-size: 1em;
     }
@@ -193,7 +333,7 @@ button.slick-prev {
     .section_counter .titulo_header {
         font-size: 1em;
     }
-    
+
     .section_counter .titulo_header .title_one {
         color: #64CCC5;
         font-weight: medium;
@@ -203,8 +343,24 @@ button.slick-prev {
     button.slick-next {
         display: none !important;
     }
-    
+
     button.slick-prev {
         display: none !important;
+    }
+
+
+    .section_001 article:nth-child(2) {
+        margin-bottom: 5rem;
+    }
+
+    .section_002 .img_section_002 {
+        margin: 4rem;
+    }
+}
+
+@media only screen and (max-width: 800px) {
+    .section_002 .flex_inverse_section_item {
+        display: flex;
+        flex-direction: column-reverse;
     }
 }

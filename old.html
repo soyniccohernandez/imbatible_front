@@ -1,0 +1,858 @@
+<!DOCTYPE html>
+<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>RETOIMBATIBLE</title>
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.bunny.net">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <link href="https://fonts.bunny.net/css?family=figtree:400,600&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.css" />
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick-theme.min.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Oswald:wght@200..700&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap');
+
+        body {
+            background-color: #001C30;
+            font-family: "Lato", sans-serif;
+            color: #d9f4ff94;
+            font-size: 1.3em;
+        }
+
+        .navbar {
+            /* background-color: transparent !important; */
+            position: fixed;
+            width: 100%;
+            z-index: 1000;
+            transition: background-color 0.3s;
+        }
+
+        .navbar .navbar-nav .nav-item {
+            display: flex !important;
+            justify-content: center !important;
+            align-items: center !important;
+        }
+
+        .navbar .navbar-nav .nav-item .nav-link {
+            color: #fff !important;
+            font-family: "Oswald", sans-serif;
+        }
+
+        .navbar.scrolled {
+            background-color: rgba(0, 0, 0, 0.7) !important;
+            /* Color de fondo con transparencia al hacer scroll */
+        }
+
+
+
+        .st1,
+        .st2 {
+            background-color: #001C30 !important;
+            height: auto;
+            margin: 8rem 0 0 0;
+            position: relative;
+        }
+
+        .st1 .contend_section_image,
+        .st2 .contend_section_image {
+            position: relative;
+            display: flex;
+            justify-content: center;
+            align-content: center;
+        }
+
+        .st1 .contend_section_image .img_section,
+        .st2 .contend_section_image .img_section {
+            width: 500px;
+        }
+
+        .title_section {
+            font-family: "Oswald", sans-serif;
+            font-weight: bold;
+            color: #fff;
+            font-size: 4rem;
+        }
+
+        .group_title_section {
+            display: flex;
+            flex-direction: row-reverse;
+            justify-content: space-between;
+            align-items: center;
+            color: #d9f4ff94;
+            margin-bottom: 2rem;
+        }
+
+        .group_text_title_section {
+            display: flex;
+            flex-direction: row-reverse;
+            gap: 2rem;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .group_text_title_section i {
+            font-size: 3rem;
+            color: #176B87;
+        }
+
+        .text_title_section {
+            max-width: 600px;
+        }
+
+        .st1 .contend_section_image .title_section,
+        .st2 .contend_section_image .title_section {
+            position: absolute;
+            top: 14rem;
+            left: 10rem;
+            font-family: "Oswald", sans-serif;
+            font-weight: bold;
+            color: #fff;
+            font-size: 4rem;
+            transform: rotate(90deg);
+            display: flex;
+            flex-direction: column;
+            line-height: 4rem;
+        }
+
+        .st1 .contend_section_paragrah,
+        .st2 .contend_section_paragrah {
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            gap: 2rem
+        }
+
+        .st1 .contend_section_paragrah .contend_section h3,
+        .st2 .contend_section_paragrah .contend_section h3 {
+            font-family: "Oswald", sans-serif;
+            color: #fff;
+            font-weight: bold;
+            text-transform: uppercase;
+        }
+
+        .st1 .contend_section_paragrah .contend_section p,
+        .st2 .contend_section_paragrah .contend_section p {
+            color: #d9f4ff94;
+            font-size: 1.3em;
+        }
+
+        .st1 .items_vertical,
+        .st2 .items_vertical {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            width: 100%;
+            height: 100%;
+            gap: 8rem;
+        }
+
+        .st1 .items_vertical span,
+        .st2 .items_vertical span {
+            transform: rotate(90deg);
+            font-family: "Oswald", sans-serif;
+            color: #fff;
+            font-weight: bold;
+            font-size: 1rem;
+            width: auto;
+            text-transform: uppercase;
+        }
+
+        .st2 .video {
+            width: 100%;
+            /* padding: 2rem 0 2rem; */
+        }
+
+        .st2 {
+            padding-bottom: 14rem;
+        }
+
+        .custom-shape-divider-bottom-1708532247 {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            overflow: hidden;
+            line-height: 0;
+            transform: rotate(180deg);
+        }
+
+        .custom-shape-divider-bottom-1708532247 svg {
+            position: relative;
+            display: block;
+            width: calc(140% + 1.3px);
+            height: 154px;
+        }
+
+        .custom-shape-divider-bottom-1708532247 .shape-fill {
+            fill: #001C30;
+        }
+
+
+        .custom-shape-divider-bottom-1708878301 {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            overflow: hidden;
+            line-height: 0;
+            transform: rotate(180deg);
+        }
+
+        .custom-shape-divider-bottom-1708878301 svg {
+            position: relative;
+            display: block;
+            width: calc(100% + 1.3px);
+            height: 126px;
+        }
+
+        .custom-shape-divider-bottom-1708878301 .shape-fill {
+            fill: #176B87;
+        }
+
+
+        .custom-shape-divider-bottom-1708882008 {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            overflow: hidden;
+            line-height: 0;
+            transform: rotate(180deg);
+        }
+
+        .custom-shape-divider-bottom-1708882008 svg {
+            position: relative;
+            display: block;
+            width: calc(100% + 1.3px);
+            height: 98px;
+        }
+
+        .custom-shape-divider-bottom-1708882008 .shape-fill {
+            fill: #FFFFFF;
+        }
+
+
+        .st0 {
+            position: relative;
+            height: 100vh;
+        }
+
+        .st0 .logo_st0 {
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            z-index: 10;
+            transform: translate(-50%, -50%);
+        }
+
+        .content_item_slider {
+            position: absolute;
+            z-index: 10;
+            width: 100%;
+            height: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .st0 .content_item_slider .text_item_slider {
+            font-family: "Oswald", sans-serif;
+            font-weight: bold;
+            color: #fff;
+            font-size: 5rem;
+            line-height: 5.8rem;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .st0 .content_item_slider .text_item_slider .social_media_slider {
+            display: flex;
+            justify-content: start;
+            align-items: center;
+            gap: 2rem;
+            font-size: 2rem;
+        }
+
+        .st0 .slider .content_item_slider .text_item.video_slider .social_media_slider i {
+            color: #DAFFFB;
+        }
+
+        .st0 .slider .content_item_slider .text_item_slider .social_media_slider i:hover {
+            color: #176B87;
+
+        }
+
+
+        .st0 .slider .content_item_slider .text_item_slider div>span {
+            color: #64CCC5;
+        }
+
+        .st0 .slider img {
+            width: 100%;
+            height: 100vh;
+            object-fit: cover;
+        }
+
+        button.slick-next {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 10;
+        }
+
+        button.slick-prev {
+            left: 2rem;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 10;
+        }
+
+        button.slick-prev::before,
+        button.slick-next::before {
+            font-size: 3rem;
+        }
+
+        .custom-shape-divider-bottom-1708463125 {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            overflow: hidden;
+            line-height: 0;
+            transform: rotate(180deg);
+        }
+
+        .custom-shape-divider-bottom-1708463125 svg {
+            position: relative;
+            display: block;
+            width: calc(100% + 1.3px);
+            height: 84px;
+        }
+
+
+        .slick-next {
+            right: 2rem;
+            width: 5rem;
+            height: 5rem;
+            font-size: 2rem !important;
+        }
+
+        .slick-prev {
+            right: 0;
+            z-index: 10;
+            width: 5rem;
+            height: 5rem;
+            font-size: 2rem !important;
+        }
+
+        .st3 {
+            background-color: #176B87;
+            /* background-image: url('images/b.jpg'); */
+        }
+
+        .paragrah_st3_item {
+            color: #d9f4ff94;
+            font-size: 1.3em;
+        }
+
+        .paragrah_st4_item {
+            color: #0a0c0c94;
+            font-size: 1.3em;
+        }
+
+        .st4 .paragrah_st4_item span {
+            color: #176B87;
+            font-weight: bold;
+            font-size: 2rem;
+            font-family: 'Oswald', 'sans-serif;';
+            display: block;
+        }
+
+        .st4 .title_section {
+            margin: 8rem 0 6rem;
+        }
+
+        .st4 .bcheck {
+            width: 50px;
+            height: 50px;
+            border-radius: 8px;
+        }
+
+        .st4 .bcheck_bv {
+            background-image: url('images/bbva.png');
+            background-size: cover;
+        }
+
+        .st4 .bcheck_nq {
+            background-image: url('images/nequi.png');
+            background-size: cover;
+        }
+
+        .st4 .bcheck_dp {
+            background-image: url('images/daviplata.png');
+            background-size: cover;
+        }
+
+        .custom-shape-divider-bottom-1708904485 {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            overflow: hidden;
+            line-height: 0;
+            transform: rotate(180deg);
+        }
+
+        .custom-shape-divider-bottom-1708904485 svg {
+            position: relative;
+            display: block;
+            width: calc(100% + 1.3px);
+            height: 150px;
+        }
+
+        .custom-shape-divider-bottom-1708904485 .shape-fill {
+            fill: #001C30;
+        }
+    </style>
+</head>
+
+<body>
+    <nav class="navbar navbar-expand-lg bg-transparent">
+        <div class="container">
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse justify-content-between" id="navbarSupportedContent">
+                <ul class="navbar-nav w-100 d-flex justify-content-between">
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="#">INICIO</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">¿QUÉ ES IMBATIBLE?</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">EDICIÓN BUSCANDO EL ALBA</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">REGLAS</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">INSCRIPCIÓN</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">KIT</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">PREMIACIÓN</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">PATROCINADORES</a>
+                    </li>
+
+
+                    @if (Route::has('login'))
+                    @auth
+                    <li class="nav-item">
+                        <a href="{{ url('/dashboard') }}" class="nav-link">ADMINISTRADOR</a>
+                    </li>
+                    @else
+                    <li class="nav-item">
+                        <a href="{{ route('login') }}" class="btn btn-sm btn-primary m-0">INICIAR SESIÓN</a>
+                    </li>
+
+                    {{-- @if (Route::has('register'))
+                                <li>
+                                    <a href="{{ route('register') }}" class="btn btn-sm m-0 btn-primary">REGISTRARME</a>
+                    </li>
+                    @endif --}}
+                    @endauth
+                    @endif
+
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+
+    <section class="st0">
+        <div class="content_item_slider">
+            <div class="text_item_slider w-50">
+
+                <span>SÚPERA</span>
+                <span>TUS LÍMITES Y</span>
+                <div><span>INSCRÍBETE</span> A</div>
+                <div>IMBATIBLE</div>
+                <div class="btn btn-primary d-inline-block w-50 my-5">RESERVA TU LUGAR AHORA</div>
+                <div class="social_media_slider">
+                    <a href="#" class="nav-link"><i class="fa-brands fa-instagram"></i></a>
+                    <a href="#" class="nav-link"><i class="fa-brands fa-facebook"></i></a>
+                    <a href="#" class="nav-link"><i class="fa-brands fa-youtube"></i></a>
+                    <a href="#" class="nav-link"><i class="fa-brands fa-linkedin"></i></a>
+                    <a href="#" class="nav-link"><i class="fa-brands fa-tiktok"></i></a>
+                </div>
+            </div>
+        </div>
+        {{-- <img src="{{ asset('images/logo.png') }}" alt="logo" class="logo_st0"> --}}
+        <div class="slider">
+            <img src="{{ asset('images/a_c.png') }}" alt="Image 1">
+            <img src="{{ asset('images/b_c.png') }}" alt="Image 2">
+            <img src="{{ asset('images/c_c.png') }}" alt="Image 3">
+        </div>
+
+
+        <div class="custom-shape-divider-bottom-1708532247">
+            <svg data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120" preserveAspectRatio="none">
+                <path d="M0,0V46.29c47.79,22.2,103.59,32.17,158,28,70.36-5.37,136.33-33.31,206.8-37.5C438.64,32.43,512.34,53.67,583,72.05c69.27,18,138.3,24.88,209.4,13.08,36.15-6,69.85-17.84,104.45-29.34C989.49,25,1113-14.29,1200,52.47V0Z" opacity=".25" class="shape-fill"></path>
+                <path d="M0,0V15.81C13,36.92,27.64,56.86,47.69,72.05,99.41,111.27,165,111,224.58,91.58c31.15-10.15,60.09-26.07,89.67-39.8,40.92-19,84.73-46,130.83-49.67,36.26-2.85,70.9,9.42,98.6,31.56,31.77,25.39,62.32,62,103.63,73,40.44,10.79,81.35-6.69,119.13-24.28s75.16-39,116.92-43.05c59.73-5.85,113.28,22.88,168.9,38.84,30.2,8.66,59,6.17,87.09-7.5,22.43-10.89,48-26.93,60.65-49.24V0Z" opacity=".5" class="shape-fill"></path>
+                <path d="M0,0V5.63C149.93,59,314.09,71.32,475.83,42.57c43-7.64,84.23-20.12,127.61-26.46,59-8.63,112.48,12.24,165.56,35.4C827.93,77.22,886,95.24,951.2,90c86.53-7,172.46-45.71,248.8-84.81V0Z" class="shape-fill"></path>
+            </svg>
+        </div>
+    </section>
+
+    <section class="st1">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-5">
+                    <div class="contend_section_image">
+                        <img src="{{ asset('images/a.png') }}" alt="race people" class="img_section">
+                        <div class="title_section">
+                            <span>¿QUÉ ES</span>
+                            <span>IMBATIBLE?</span>
+                        </div>
+                    </div>
+
+                </div>
+                <div class="col-md-7">
+                    <div class="contend_section_paragrah">
+                        <div class="contend_section">
+                            <h3>Explorando límites</h3>
+                            <p>IMBATIBLE es un reto de ciclismo diferente, donde cada participante buscará superar sus límites, enfrentándose a un exigente recorrido y a la incertidumbre de lo que pueda suceder en el camino. Muchos kilómetros y desnivel de retro inspección, buscando una mejor versión, nuestro propósito es sacar a flote ese espíritu inquebrantable que todos llevamos dentro, pero muchas veces desconocemos.</p>
+                        </div>
+                        <div class="contend_section">
+                            <h3>Descubriendo fortaleza interior</h3>
+                            <p>En IMBATIBLE, nos sumergimos en una travesía que va más allá de la competencia física. Es un viaje hacia el interior de cada participante, donde se descubre una fortaleza hasta entonces desconocida. A través de cada pedaleo, se revela un espíritu resiliente, capaz de enfrentar los desafíos más grandes con determinación y coraje. En este recorrido, no solo se conquistan kilómetros, sino también se conquista la confianza en uno mismo y en la capacidad de superar cualquier obstáculo que se presente en el camino.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+    </section>
+
+    <section class="st2">
+        <div class="container">
+            <div class="row">
+                <div class="group_title_section">
+                    <div class="group_text_title_section">
+                        <span class="text_title_section">El 25 de noviembre del 2023, 31 valientes se enfrentaron a 233 kilómetros con 5300 Desnivel positivo, sólo el 64% de inscritos logro llegar en el tiempo límite.</span>
+                        <i class="fa-solid fa-film"></i>
+                    </div>
+                    <h2 class="title_section">IMBATIBLE 1.ª Edición</h2>
+                </div>
+                <div class="col-md-12">
+                    <video id="video" class="video" playsinline controls muted autoplay playsinline src="{{ asset('video/intro.mp4') }}"></video>
+                </div>
+            </div>
+        </div>
+        <div class="custom-shape-divider-bottom-1708878301">
+            <svg data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120" preserveAspectRatio="none">
+                <path d="M0,0V46.29c47.79,22.2,103.59,32.17,158,28,70.36-5.37,136.33-33.31,206.8-37.5C438.64,32.43,512.34,53.67,583,72.05c69.27,18,138.3,24.88,209.4,13.08,36.15-6,69.85-17.84,104.45-29.34C989.49,25,1113-14.29,1200,52.47V0Z" opacity=".25" class="shape-fill"></path>
+                <path d="M0,0V15.81C13,36.92,27.64,56.86,47.69,72.05,99.41,111.27,165,111,224.58,91.58c31.15-10.15,60.09-26.07,89.67-39.8,40.92-19,84.73-46,130.83-49.67,36.26-2.85,70.9,9.42,98.6,31.56,31.77,25.39,62.32,62,103.63,73,40.44,10.79,81.35-6.69,119.13-24.28s75.16-39,116.92-43.05c59.73-5.85,113.28,22.88,168.9,38.84,30.2,8.66,59,6.17,87.09-7.5,22.43-10.89,48-26.93,60.65-49.24V0Z" opacity=".5" class="shape-fill"></path>
+                <path d="M0,0V5.63C149.93,59,314.09,71.32,475.83,42.57c43-7.64,84.23-20.12,127.61-26.46,59-8.63,112.48,12.24,165.56,35.4C827.93,77.22,886,95.24,951.2,90c86.53-7,172.46-45.71,248.8-84.81V0Z" class="shape-fill"></path>
+            </svg>
+        </div>
+    </section>
+
+    <section class="st3 pb-5" style="position: relative;">
+        <div class="container pb-5">
+
+            <div class="row pt-5">
+                <div class="col-md-6 pt-5">
+                    <img src="{{ asset('images/AA.png') }}" alt="" class="w-100">
+                </div>
+                <div class="col-md-6 d-flex justify-content-center align-items-center flex-column">
+                    <h2 class="title_section">EDICIÓN BUSCANDO EL ALBA</h2>
+                    <p class="paragrah_st3_item">
+                        El 27 de julio llega la segunda edición de IMBATIBLE, en esta ocasión el objetivo
+                        es recorrer de manera auto asistida 238 km con 5400 metros de desnivel
+                        positivo y subiremos el nivel de dificultad teniendo como largada la luz de la luna,
+                        iniciaremos el recorrido de noche e iremos en busca del amanecer, iremos
+                        cazando la luz del primer rayo de sol al tiempo que superamos nuestros miedos.
+                        La salida será en la Vega Cundinamarca, y para ser considerados finalistas
+                        oficiales tendrán que pasar por tres puntos de control obligatorios y llegar a la
+                        meta antes del tiempo límite de 13 horas para hombres y 14 horas para mujeres.
+                    </p>
+                </div>
+            </div>
+
+
+
+            <div class="row pt-5">
+                <div class="col-md-6 d-flex justify-content-center align-items-center flex-column">
+                    <h2 class="title_section">¿CUÁL ES LA META Y EL RECORRIDO?</h2>
+                    <p class="paragrah_st3_item">
+                        Está información sólo será compartida a los
+                        inscritos al evento y socializada en el congresillo técnico, pero te adelantamos que
+                        la llegada cerca a Bogotá (2 horas aprox. en vehículo).
+                    </p>
+                </div>
+                <div class="col-md-6 pt-5">
+                    <img src="{{ asset('images/BB.png') }}" alt="" class="w-100">
+                </div>
+
+            </div>
+        </div>
+        <div class="custom-shape-divider-bottom-1708882008">
+            <svg data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120" preserveAspectRatio="none">
+                <path d="M0,0V46.29c47.79,22.2,103.59,32.17,158,28,70.36-5.37,136.33-33.31,206.8-37.5C438.64,32.43,512.34,53.67,583,72.05c69.27,18,138.3,24.88,209.4,13.08,36.15-6,69.85-17.84,104.45-29.34C989.49,25,1113-14.29,1200,52.47V0Z" opacity=".25" class="shape-fill"></path>
+                <path d="M0,0V15.81C13,36.92,27.64,56.86,47.69,72.05,99.41,111.27,165,111,224.58,91.58c31.15-10.15,60.09-26.07,89.67-39.8,40.92-19,84.73-46,130.83-49.67,36.26-2.85,70.9,9.42,98.6,31.56,31.77,25.39,62.32,62,103.63,73,40.44,10.79,81.35-6.69,119.13-24.28s75.16-39,116.92-43.05c59.73-5.85,113.28,22.88,168.9,38.84,30.2,8.66,59,6.17,87.09-7.5,22.43-10.89,48-26.93,60.65-49.24V0Z" opacity=".5" class="shape-fill"></path>
+                <path d="M0,0V5.63C149.93,59,314.09,71.32,475.83,42.57c43-7.64,84.23-20.12,127.61-26.46,59-8.63,112.48,12.24,165.56,35.4C827.93,77.22,886,95.24,951.2,90c86.53-7,172.46-45.71,248.8-84.81V0Z" class="shape-fill"></path>
+            </svg>
+        </div>
+
+    </section>
+
+    <section class="st4 bg-white" style="position:relative; padding-bottom: 16rem;">
+        <div class="container">
+            <div class="row">
+                <h2 class="title_section text-black">REGLAMENTO DE LA CARRERA</h2>
+                <div class="col-md-3">
+                    <img src="{{ asset('images/EE.png') }}" alt="" class="w-100">
+                    <p class="paragrah_st4_item my-5">
+                        <span>1. Autosuficiencia</span>Está prohibido el apoyo de terceros como motos, vehículos
+                        acompañantes o ciclistas gregarios fuera de los inscritos. Cada ciclista inscrito será
+                        autónomo en la asistencia de problemas mecánicos, alimentación u otros, aunque
+                        contará con acompañamiento de la organización y dos puntos de abastecimiento.
+                    </p>
+                </div>
+                <div class="col-md-3">
+                    <img src="{{ asset('images/DD.png') }}" alt="" class="w-100">
+                    <p class="paragrah_st4_item my-5">
+                        <span>2. Tiempo</span> Para ser considerado finisher debes completar el recorrido en máximo
+                        13 horas, además de pasar obligatoriamente por los puntos de control.
+                    </p>
+                </div>
+                <div class="col-md-3">
+                    <img src="{{ asset('images/FF.png') }}" alt="" class="w-100">
+                    <p class="paragrah_st4_item my-5">
+                        <span>3. Condiciones de inscripción</span> No pueden acceder a premiación o podio
+                        ciclistas profesionales o aquellos que lo hayan sido en los tres años anteriores a la
+                        fecha del evento, tampoco se puede participar en bicicletas asistidas o de motor.
+                    </p>
+                </div>
+                <div class="col-md-3">
+                    <img src="{{ asset('images/GG.png') }}" alt="" class="w-100">
+                    <p class="paragrah_st4_item my-5">
+                        <span>4. Descalificación</span> El ciclista que reciba ayuda externa será descalificado de la
+                        competencia. Lo anterior será supervisado por jueces de la organización que
+                        acompañarán el recorrido.
+                    </p>
+                </div>
+            </div>
+
+            <div class="row mt-5">
+                <span class="d-flex justify-content-between align-items-center">
+                    <h2 class="title_section text-black my-5">INSCRIPCIONES</h2>
+                    <a href="#" class="btn btn-primary">Registrarme</a>
+                </span>
+                <p class="paragrah_st4_item">
+                    *¡Bienvenidos al evento que estabas esperando! Estamos emocionados de invitarte a participar en esta experiencia única que te llevará a nuevos desafíos y logros. En IMBATIBLE EDICIÓN BUSCANDO EL ALBA, nos comprometemos a brindarte una jornada inolvidable llena de aprendizaje, diversión y conexión con otros apasionados como tú. Para asegurar tu lugar en esta aventura, te proporcionamos todos los detalles necesarios para completar tu inscripción:</p>
+                <div class="col-md-8">
+                    <h4 class="my-5">Pasos para la inscripción</h4>
+                    <ol class="list-group list-group-numbered">
+                        <li class="list-group-item d-flex justify-content-between align-items-start">
+                            <div class="ms-2 me-auto">
+                                <div>Paga el valor de la inscripción</div>
+                                <div class="fw-bold">Selecciona tu opción preferida para realizar el pago.
+                                    Una vez hallas realizado el pago continúa.</div>
+
+                            </div>
+                        </li>
+                        <li class="list-group-item d-flex justify-content-between align-items-start">
+                            <div class="ms-2 me-auto">
+                                <div>Ve al formulario de inscripción</div>
+                                <div class="fw-bold">Si ya cuentas con tu comprobante de pago da click aquí y registrate a este gran evento.</div>
+                            </div>
+                        </li>
+                        <li class="list-group-item d-flex justify-content-between align-items-start">
+                            <div class="ms-2 me-auto">
+                                <div>Diligencia y adjunta el soporte de pago</div>
+                                <div class="fw-bold">(Corroborados los datos, recibirás correo con link para unirte al grupo de WhatsApp oficial del evento).
+                                </div>
+                        </li>
+                        <li class="list-group-item d-flex justify-content-between align-items-start">
+                            <div class="ms-2 me-auto">
+                                <div>Recibirás correo con link</div>
+                                <div class="fw-bold">Recibirás correo con link
+                                </div>
+                        </li>
+                    </ol>
+
+                </div>
+                <div class="col-md-4">
+                    <h4 class="my-5">Datos bancarios para pago</h4>
+                    <ol class="list-group list-group-numbered">
+                        <li class="list-group-item d-flex justify-content-between align-items-start">
+                            <div class="ms-2 me-auto">
+                                <div>Titular | John Hernández Sibo</div>
+                                <div class="fw-bold">Cuenta de Ahorros BBVA</div>
+                                # 0079236592
+
+                            </div>
+                            <span class="bcheck bcheck_bv"></span>
+                        </li>
+                        <li class="list-group-item d-flex justify-content-between align-items-start">
+                            <div class="ms-2 me-auto">
+                                <div>Titular | John Hernández Sibo</div>
+                                <div class="fw-bold">Financieras Digitales</div>
+                                NEQUI | 3213028666
+                            </div>
+                            <span class="bcheck bcheck_nq"></span>
+                        </li>
+                        <li class="list-group-item d-flex justify-content-between align-items-start">
+                            <div class="ms-2 me-auto">
+                                <div>Titular | John Hernández Sibo</div>
+                                <div class="fw-bold">Financieras Digitales</div>
+                                DAVIPLATA | 3213028666
+                            </div>
+                            <span class="bcheck bcheck_dp"></span>
+                        </li>
+                    </ol>
+
+                </div>
+
+                <p class="paragrah_st4_item fst-italic my-3">
+                    *<strong>Descuento grupos</strong>: Paga 4 e inscribe a 5personas, escríbenos al correo
+                    info@imbatible.com o al Instagram @imbatible_ solicitando más información.</p>
+            </div>
+        </div>
+
+        <div class="custom-shape-divider-bottom-1708904485">
+            <svg data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120" preserveAspectRatio="none">
+                <path d="M0,0V46.29c47.79,22.2,103.59,32.17,158,28,70.36-5.37,136.33-33.31,206.8-37.5C438.64,32.43,512.34,53.67,583,72.05c69.27,18,138.3,24.88,209.4,13.08,36.15-6,69.85-17.84,104.45-29.34C989.49,25,1113-14.29,1200,52.47V0Z" opacity=".25" class="shape-fill"></path>
+                <path d="M0,0V15.81C13,36.92,27.64,56.86,47.69,72.05,99.41,111.27,165,111,224.58,91.58c31.15-10.15,60.09-26.07,89.67-39.8,40.92-19,84.73-46,130.83-49.67,36.26-2.85,70.9,9.42,98.6,31.56,31.77,25.39,62.32,62,103.63,73,40.44,10.79,81.35-6.69,119.13-24.28s75.16-39,116.92-43.05c59.73-5.85,113.28,22.88,168.9,38.84,30.2,8.66,59,6.17,87.09-7.5,22.43-10.89,48-26.93,60.65-49.24V0Z" opacity=".5" class="shape-fill"></path>
+                <path d="M0,0V5.63C149.93,59,314.09,71.32,475.83,42.57c43-7.64,84.23-20.12,127.61-26.46,59-8.63,112.48,12.24,165.56,35.4C827.93,77.22,886,95.24,951.2,90c86.53-7,172.46-45.71,248.8-84.81V0Z" class="shape-fill"></path>
+            </svg>
+        </div>
+    </section>
+
+    <section class="st1">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="w-100" style="display: flex; flex-wrap: wrap; justify-content: center;align-items:center; flex-direction: row;gap:2rem">
+                        <div class="card txt-center bg-transparent border-bottom w-25">
+                            <i class="fa-solid fa-shirt d-block text-center my-5" style="font-size: 4rem; color:#64CCC5;"></i>
+                            <div class="card-title text-center" style="color: #d9f4ff94;">Jersey oficial IMBATIBLE x Phigma (agregar foto de la edición anterior, con la aclaració “Jersey 1ra edición)</div>
+                        </div>
+                        <div class="card txt-center bg-transparent border-bottom w-25">
+                            <i class="fa-solid fa-shirt d-block text-center my-5" style="font-size: 4rem; color:#64CCC5;"></i>
+                            <div class="card-title text-center" style="color: #d9f4ff94;">Jersey oficial IMBATIBLE x Phigma (agregar foto de la edición anterior, con la aclaració “Jersey 1ra edición)</div>
+                        </div>
+                        <div class="card txt-center bg-transparent border-bottom w-25">
+                            <i class="fa-solid fa-shirt d-block text-center my-5" style="font-size: 4rem; color:#64CCC5;"></i>
+                            <div class="card-title text-center" style="color: #d9f4ff94;">Jersey oficial IMBATIBLE x Phigma (agregar foto de la edición anterior, con la aclaració “Jersey 1ra edición)</div>
+                        </div>
+                        <div class="card txt-center bg-transparent border-bottom w-25">
+                            <i class="fa-solid fa-shirt d-block text-center my-5" style="font-size: 4rem; color:#64CCC5;"></i>
+                            <div class="card-title text-center" style="color: #d9f4ff94;">Jersey oficial IMBATIBLE x Phigma (agregar foto de la edición anterior, con la aclaració “Jersey 1ra edición)</div>
+                        </div>
+                        <div class="card txt-center bg-transparent border-bottom w-25">
+                            <i class="fa-solid fa-shirt d-block text-center my-5" style="font-size: 4rem; color:#64CCC5;"></i>
+                            <div class="card-title text-center" style="color: #d9f4ff94;">Jersey oficial IMBATIBLE x Phigma (agregar foto de la edición anterior, con la aclaració “Jersey 1ra edición)</div>
+                        </div>
+                        <div class="card txt-center bg-transparent border-bottom w-25">
+                            <i class="fa-solid fa-shirt d-block text-center my-5" style="font-size: 4rem; color:#64CCC5;"></i>
+                            <div class="card-title text-center" style="color: #d9f4ff94;">Jersey oficial IMBATIBLE x Phigma (agregar foto de la edición anterior, con la aclaració “Jersey 1ra edición)</div>
+                        </div>
+                        <div class="card txt-center bg-transparent border-bottom w-25">
+                            <i class="fa-solid fa-shirt d-block text-center my-5" style="font-size: 4rem; color:#64CCC5;"></i>
+                            <div class="card-title text-center" style="color: #d9f4ff94;">Jersey oficial IMBATIBLE x Phigma (agregar foto de la edición anterior, con la aclaració “Jersey 1ra edición)</div>
+                        </div>
+                        <div class="card txt-center bg-transparent border-bottom w-25">
+                            <i class="fa-solid fa-shirt d-block text-center my-5" style="font-size: 4rem; color:#64CCC5;"></i>
+                            <div class="card-title text-center" style="color: #d9f4ff94;">Jersey oficial IMBATIBLE x Phigma (agregar foto de la edición anterior, con la aclaració “Jersey 1ra edición)</div>
+                        </div>
+                        <div class="card txt-center bg-transparent border-bottom w-25">
+                            <i class="fa-solid fa-shirt d-block text-center my-5" style="font-size: 4rem; color:#64CCC5;"></i>
+                            <div class="card-title text-center" style="color: #d9f4ff94;">Jersey oficial IMBATIBLE x Phigma (agregar foto de la edición anterior, con la aclaració “Jersey 1ra edición)</div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+
+        </div>
+    </section>
+
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery-migrate/1.2.1/jquery-migrate.min.js">
+    </script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous">
+    </script>
+    <script>
+        $(document).ready(function() {
+            $('.slider').slick({
+                autoplay: true,
+                autoplaySpeed: 3000 // Cambiar cada 3 segundos
+            });
+
+            $('.slick-prev').html('');
+            $('.slick-next').html('');
+
+
+            window.addEventListener('scroll', function() {
+                var nav = document.querySelector('.navbar');
+                if (window.scrollY > 0) {
+                    nav.classList.remove('bg-transparent');
+                    nav.style.backgroundColor = '#176B87';
+                } else {
+                    nav.classList.remove('bg-primary');
+                    nav.classList.add('bg-transparent');
+                }
+            });
+
+        });
+
+
+        const $video = document.querySelector('#video');
+        const options = {
+            rootMargin: '0px',
+            threshold: 0.5,
+        };
+
+        let isVideoPlaying = false; // Variable para rastrear si el video está reproduciéndose
+
+        function callback(entries, observer) {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    // Si el video entra en pantalla y aún no se está reproduciendo, reproducir el video
+                    if (!isVideoPlaying) {
+                        $video.play();
+                        isVideoPlaying = true;
+                    }
+                } else {
+                    // Si el video sale de pantalla, pausar el video
+                    $video.pause();
+                    isVideoPlaying = false;
+                }
+            });
+        }
+
+        const observer = new IntersectionObserver(callback, options);
+        observer.observe($video);
+    </script>
+</body>
+
+</html>
