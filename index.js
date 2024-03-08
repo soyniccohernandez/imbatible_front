@@ -7,18 +7,8 @@ $(".slider_movile").slick({
   autoplaySpeed: 3000, // Cambiar cada 3 segundos
 });
 
-if (window.matchMedia("(min-width: 990px)").matches) {
-  window.addEventListener("scroll", function () {
-    var nav = document.querySelector(".navbar");
-    if (window.scrollY > 0) {
-      nav.classList.remove("bg-transparent");
-      nav.style.backgroundColor = "#176B87";
-    } else {
-      nav.classList.remove("bg-primary");
-      nav.classList.add("bg-transparent");
-    }
-  });
-}
+
+
 
 // Contador
 
