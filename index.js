@@ -8,7 +8,23 @@ $(".slider_movile").slick({
 });
 
 
+function topFunction() {
+  document.body.scrollTop = 0; // Para Safari
+  document.documentElement.scrollTop = 0; // Para Chrome, Firefox, IE y Opera
+}
 
+// Adjuntar evento de desplazamiento
+window.onscroll = function() {scrollFunction()};
+
+function scrollFunction() {
+  // Si el desplazamiento es mayor a 20px, muestra el botón
+  if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+    document.getElementById("goToTopBtn").style.display = "block";
+  } else {
+    // De lo contrario, oculta el botón
+    document.getElementById("goToTopBtn").style.display = "none";
+  }
+}
 
 // Contador
 
